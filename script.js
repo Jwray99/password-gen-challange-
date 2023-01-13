@@ -118,7 +118,7 @@ console.log(options);
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-  arr[Math.floor(Math.random()*arr.length)]
+  return arr[Math.floor(Math.random()*arr.length)];
 }
 
 // Function to generate password with user input
