@@ -88,20 +88,18 @@ var upperCasedCharacters = [
   'Z'
 ];
 
+var  options = {
+  char: '',
+  special: '',
+  lower: '',
+  upper: '',
+  numbers: '',
+};
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-  let  options = {
-    length: '',
-    special: '',
-    lower: '',
-    upper: '',
-    numbers: '',
-};
-console.log(options);
-
-  options.length = prompt("please enter a password length between 10 and 64")
-    if(options.length >= 10 && options.length <= 64){
+  options.char = prompt("please enter a password length between 10 and 64")
+    if(options.char >= 10 && options.char <= 64){
         options.special = confirm("would you like special characters")
         options.lower = confirm("would you like lower cases")
         options.upper = confirm("would you like uppper case")
@@ -112,19 +110,27 @@ console.log(options);
       if((options.special === false) || (options.lower === false) || (options.upper === false) || (options.numbers === false)){
           alert("Please generate a new password it must have some characters")
         }
-console.log(options);
   return options;
   }
-
 // Function for getting a random element from an array
 function getRandom(arr) {
   return arr[Math.floor(Math.random()*arr.length)];
 }
 
+
 // Function to generate password with user input
 function generatePassword() {
+  let selection ="";
   getPasswordOptions()
+  if(options.special === true){
+    selection = options.special;
+  }
   console.log(options);
+for(let i = 1; i = options.char; i++){
+
+
+}
+  return password 
 }
 
 // Get references to the #generate element
