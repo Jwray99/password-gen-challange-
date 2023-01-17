@@ -87,7 +87,7 @@ var upperCasedCharacters = [
   'Y',
   'Z'
 ];
-
+var retry = "";
 var  options = {
   char: '',
   special: '',
@@ -95,6 +95,8 @@ var  options = {
   upper: '',
   numbers: '',
 };
+
+
 
 // Function to prompt user for password options
 function getPasswordOptions() {
@@ -106,31 +108,68 @@ function getPasswordOptions() {
         options.numbers = confirm("would you like numbers")
   }else {
     alert("please generate a new password your input was not valid")
+    retry = "retry"
   }
-      if((options.special === false) || (options.lower === false) || (options.upper === false) || (options.numbers === false)){
+      if((options.special === false && options.lower === false && options.upper === false &&  options.numbers === false)){
           alert("Please generate a new password it must have some characters")
+          retry = "retry"
         }
   return options;
   }
 // Function for getting a random element from an array
 function getRandom(arr) {
   return arr[Math.floor(Math.random()*arr.length)];
+  
+  
 }
 
 
 // Function to generate password with user input
 function generatePassword() {
-  let selection ="";
+  let special ="";
+  let lower ="";
+  let upper ="";
+  let numbers ="";
+  let random =[""];
+  let blank =[];
+
   getPasswordOptions()
   if(options.special === true){
-    selection = options.special;
+    special = specialCharacters;
+  }else{
+    special = null
   }
-  console.log(options);
-for(let i = 1; i = options.char; i++){
-
-
+  if(options.lower === true){
+    lower = lowerCasedCharacters
+  }else{
+    lower = null
+  }
+  if(options.upper === true){
+    upper = upperCasedCharacters
+  }else{
+    upper =null
+  }
+  if(options.numbers === true){
+    numbers = numericCharacters
+  }else{
+    numbers = null
+  }
+  characters = blank.concat(special, lower, upper, numbers)
+  
+  
+for(let i = 1; i < options.char; i++){
+  
+  random.push(getRandom(characters));
 }
+
+
+
+password = random.join("");
+if(retry === "retry"){
+  
+}else{
   return password 
+}
 }
 
 // Get references to the #generate element
